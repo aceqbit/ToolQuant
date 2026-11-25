@@ -1,0 +1,3628 @@
+{
+ "config": "fp32",
+ "split": "probe",
+ "utc": "20261125T165309Z",
+ "git_sha": "5733f73ac1ffd0c45f10f158d912ef99f136fcc0",
+ "packages": {
+  "torch": "2.15.0",
+  "transformers": "5.24.1",
+  "datasets": "5.2.0",
+  "onnxruntime": "1.32.0",
+  "onnxruntime-genai": "0.20.0",
+  "numpy": "2.5.5",
+  "scipy": "1.18.1",
+  "statsmodels": "0.15.0",
+  "mlflow": "3.18.0"
+ },
+ "hardware": {
+  "cpu": "13th Gen Intel(R) Core(TM) i5-1335U",
+  "logical_cpus": 12,
+  "torch_threads": 10,
+  "gpu": null
+ },
+ "summary": {
+  "n": 100,
+  "tool_call_success": 0.85,
+  "missed_call": 0.05,
+  "silent_failure": 0.09,
+  "ast_match": 0.835820895522388,
+  "abstain_ok": 0.8787878787878788,
+  "schema_valid": 0.9848484848484849,
+  "labels": {
+   "success": 85,
+   "false_call": 4,
+   "missed_call": 5,
+   "silent_failure": 5,
+   "malformed_or_invalid": 1
+  },
+  "intervals": {
+   "tool_call_success": {
+    "mean": 0.85,
+    "lo": 0.78,
+    "hi": 0.92
+   },
+   "missed_call": {
+    "mean": 0.05,
+    "lo": 0.01,
+    "hi": 0.1
+   },
+   "silent_failure": {
+    "mean": 0.09,
+    "lo": 0.04,
+    "hi": 0.15
+   }
+  }
+ },
+ "model": "Qwen/Qwen3-0.6B",
+ "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+ "seed": 0,
+ "dtype": "float32",
+ "backend": "hf",
+ "gen_seconds": 3140.6527132987976,
+ "records": [
+  {
+   "id": "irrelevance_100",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "An apple contains approximately 237 calories."
+  },
+  {
+   "id": "irrelevance_101",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The best month to visit Hawaii is typically from **May to August**, as this is when the weather is most favorable for outdoor activities."
+  },
+  {
+   "id": "irrelevance_105",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I don't have access to specific information about pollination species in South America. Could you provide more details or clarify your query?"
+  },
+  {
+   "id": "irrelevance_109",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_water_needs",
+     "arguments": {
+      "plant_type": "cactus",
+      "location": "Arizona",
+      "season": "summer"
+     }
+    }
+   ],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "false_call",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_water_needs\", \"arguments\": {\"plant_type\": \"cactus\", \"location\": \"Arizona\", \"season\": \"summer\"}}\n</tool_call>"
+  },
+  {
+   "id": "irrelevance_111",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "geo_location_based_products.fetch_eco_friendly_products",
+     "arguments": {
+      "location": "Seattle, WA",
+      "product_category": "Yoga Mats",
+      "availability": "Both"
+     }
+    }
+   ],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "false_call",
+   "raw_output": "<tool_call>\n{\"name\": \"geo_location_based_products.fetch_eco_friendly_products\", \"arguments\": {\"location\": \"Seattle, WA\", \"product_category\": \"Yoga Mats\", \"availability\": \"Both\"}}\n</tool_call>"
+  },
+  {
+   "id": "irrelevance_12",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I cannot find the fastest route from New York to Boston as I don't have access to real-time travel data or a map service. Would you like me to help you find a route using available information?"
+  },
+  {
+   "id": "irrelevance_136",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The Vice President of the United States is not a specific person, as the role is shared between two individuals. However, the current Vice President is **Joe Biden**."
+  },
+  {
+   "id": "irrelevance_14",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The acceleration a ball will reach when thrown straight upwards with a velocity of 5 m/s is $9.8 \\, \\text{m/s}^2$."
+  },
+  {
+   "id": "irrelevance_142",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The scientist who proposed the special theory of relativity is Albert Einstein."
+  },
+  {
+   "id": "irrelevance_160",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The frequency of visits to the Museum of Modern Art last year is not provided in the available data. Please check the museum's website or contact them for the most recent information."
+  },
+  {
+   "id": "irrelevance_163",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I don't have access to sell instruments directly. However, you can sell your acoustic guitar through online marketplaces like eBay, Etsy, or local music stores. You might also consider selling it through a music store or online auction platform. Let me know if you need help with anything else!"
+  },
+  {
+   "id": "irrelevance_164",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The best singer in Jazz is a topic that can be explored through music instrument players. However, I don't have specific information about the best singer in Jazz. If you have more details or a specific instrument in mind, I can help you find relevant information."
+  },
+  {
+   "id": "irrelevance_176",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The blues scale in the key of A is a variation of the major scale, typically using the notes A, B, C, D, E, F, G, and then repeating the same pattern (A, B, C, D, E, F, G) in the key of A. The pattern is A, B, C, D, E, F, G."
+  },
+  {
+   "id": "irrelevance_177",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The Grammy Award for Best Album was won by the band **The Weeknd** in 2017."
+  },
+  {
+   "id": "irrelevance_188",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The champion of the World Series in 2020 was the New York Yankees."
+  },
+  {
+   "id": "irrelevance_191",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The last World Cup in football was held in 2022, and the winner was **Brazil**."
+  },
+  {
+   "id": "irrelevance_199",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "There is no available information about the specific game of poker in question. Could you please specify the type of poker game you're referring to?"
+  },
+  {
+   "id": "irrelevance_201",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I'm sorry, but I can't help with that request. Ice cream stores are not related to the provided tools or functions. Let me know if you have other questions!"
+  },
+  {
+   "id": "irrelevance_216",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I cannot determine the closest Italian restaurant as I don't have access to real-time data or location information. Would you like me to help you find a restaurant near you?"
+  },
+  {
+   "id": "irrelevance_22",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The magnetic field at a point located at a distance 'r' from a current carrying wire can be calculated using the formula:\n\n$$ B = \\frac{\\mu_0 I}{2\\pi r} $$\n\nWhere:\n- $ B $ is the magnetic field intensity,\n- $ \\mu_0 $ is the permeability of free space (approximately $ 4\\pi \\times 10^{-7} \\, \\text{T\u00b7m/A} $),\n- $ I $ is the current flowing through the wire,\n- $ r $ is the distance from the wire.\n\nIf you have specific values for $ I $ and $ r $, I can calculate the magnetic field intensity for you. Please provide the values."
+  },
+  {
+   "id": "irrelevance_221",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "There are many recommended exercises for leg strength and endurance. Some examples include:\n\n1. Squats\n2. Deadlifts\n3. Leg extensions\n4. Leg curls\n5. Walks\n6. Jumping jacks\n7. Plank variations\n8. Step-ups\n9. Leg raises\n10. Walking lunges\n\nLet me know if you have any specific goals or preferences!"
+  },
+  {
+   "id": "irrelevance_223",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "grocery_shop.find_specific_product",
+     "arguments": {
+      "city": "Chicago",
+      "product": "sourdough bread"
+     }
+    }
+   ],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "false_call",
+   "raw_output": "<tool_call>\n{\"name\": \"grocery_shop.find_specific_product\", \"arguments\": {\"city\": \"Chicago\", \"product\": \"sourdough bread\"}}\n</tool_call>"
+  },
+  {
+   "id": "irrelevance_227",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I don't have access to real-time data, but I can calculate the time of sunset for a specific date and location. Please provide the date and location for an accurate calculation."
+  },
+  {
+   "id": "irrelevance_230",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I cannot find a pet-friendly train station in Miami. Please provide more details or check the specific train station's website for pet-friendly policies."
+  },
+  {
+   "id": "irrelevance_239",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "get_date",
+     "arguments": {
+      "location_1": "San Francisco",
+      "location_2": "Los Angeles"
+     }
+    }
+   ],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "false_call",
+   "raw_output": "<tool_call>\n{\"name\": \"get_date\", \"arguments\": {\"location_1\": \"San Francisco\", \"location_2\": \"Los Angeles\"}}\n</tool_call>"
+  },
+  {
+   "id": "irrelevance_24",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The mass of an electron is approximately $ 9.109 \\times 10^{-31} \\, \\text{kg} $."
+  },
+  {
+   "id": "irrelevance_32",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The type of blood cells responsible for clotting is **platelets**."
+  },
+  {
+   "id": "irrelevance_34",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "Lions are known to have a genetic trait that makes them tall. This trait is largely influenced by their ancestry and is a result of genetic inheritance."
+  },
+  {
+   "id": "irrelevance_45",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The sine of 45 degrees is approximately 0.7071."
+  },
+  {
+   "id": "irrelevance_49",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The time difference between Los Angeles and Berlin is approximately 12 hours."
+  },
+  {
+   "id": "irrelevance_6",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "The area of a rectangle is calculated by multiplying its length by its width. For a rectangle with a width of 5 meters and a length of 7 meters, the area is:\n\n$$\n\\text{Area} = \\text{length} \\times \\text{width} = 7 \\, \\text{m} \\times 5 \\, \\text{m} = 35 \\, \\text{m}^2\n$$\n\nThe area is 35 square meters."
+  },
+  {
+   "id": "irrelevance_69",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I cannot retrieve the average house price in California as I don't have access to real-time data or external databases. Would you like me to help you with something else?"
+  },
+  {
+   "id": "irrelevance_92",
+   "category": "irrelevance",
+   "needs_call": false,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": null,
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": true,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "I cannot find a security guard in New York. Please provide more details about the specific area or location you are looking for."
+  },
+  {
+   "id": "multiple_109",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": [
+    {
+     "cellbio.get_proteins": {
+      "cell_compartment": [
+       "plasma membrane"
+      ],
+      "include_description": [
+       false,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": true,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "missed_call",
+   "raw_output": "The proteins found in the plasma membrane are typically associated with cell membrane structure and function. Some examples include:\n\n- **Plasmid proteins**\n- **Cell surface proteins**\n- **Membrane-associated proteins**\n\nIf you have a specific protein or cell compartment in mind, please provide more details for a more accurate response."
+  },
+  {
+   "id": "multiple_11",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "math_roots.quadratic",
+     "arguments": {
+      "a": 5,
+      "b": 20,
+      "c": -25
+     }
+    }
+   ],
+   "reference": [
+    {
+     "math_roots.quadratic": {
+      "a": [
+       5
+      ],
+      "b": [
+       20
+      ],
+      "c": [
+       -25
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"math_roots.quadratic\", \"arguments\": {\"a\": 5, \"b\": 20, \"c\": -25}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_110",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "mutation_type.find",
+     "arguments": {
+      "snp_id": "rs6034464"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "mutation_type.find": {
+      "snp_id": [
+       "rs6034464"
+      ],
+      "species": [
+       "Homo sapiens",
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"mutation_type.find\", \"arguments\": {\"snp_id\": \"rs6034464\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_113",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_fitness",
+     "arguments": {
+      "trait_values": [
+       0.8,
+       0.7
+      ],
+      "trait_contributions": [
+       0.4,
+       0.6
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_fitness": {
+      "trait_values": [
+       [
+        0.8,
+        0.7
+       ]
+      ],
+      "trait_contributions": [
+       [
+        0.4,
+        0.6
+       ]
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_fitness\", \"arguments\": {\"trait_values\": [0.8, 0.7], \"trait_contributions\": [0.4, 0.6]}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_122",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "run_linear_regression",
+     "arguments": {
+      "predictors": [
+       "Age",
+       "Income",
+       "Education"
+      ],
+      "target": "Purchase_Amount",
+      "standardize": true
+     }
+    }
+   ],
+   "reference": [
+    {
+     "run_linear_regression": {
+      "predictors": [
+       [
+        "Age",
+        "Income",
+        "Education"
+       ],
+       [
+        "Age",
+        "Education",
+        "Income"
+       ],
+       [
+        "Income",
+        "Age",
+        "Education"
+       ],
+       [
+        "Income",
+        "Education",
+        "Age"
+       ],
+       [
+        "Education",
+        "Age",
+        "Income"
+       ],
+       [
+        "Education",
+        "Income",
+        "Age"
+       ]
+      ],
+      "target": [
+       "Purchase_Amount"
+      ],
+      "standardize": [
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"run_linear_regression\", \"arguments\": {\"predictors\": [\"Age\", \"Income\", \"Education\"], \"target\": \"Purchase_Amount\", \"standardize\": true}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_129",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "compound_interest",
+     "arguments": {
+      "principal": 10000,
+      "annual_rate": 5,
+      "compounding_freq": "monthly",
+      "time_in_years": 5
+     }
+    }
+   ],
+   "reference": [
+    {
+     "compound_interest": {
+      "principal": [
+       10000
+      ],
+      "annual_rate": [
+       5.0
+      ],
+      "compounding_freq": [
+       "monthly"
+      ],
+      "time_in_years": [
+       5
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"compound_interest\", \"arguments\": {\"principal\": 10000, \"annual_rate\": 5, \"compounding_freq\": \"monthly\", \"time_in_years\": 5}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_13",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "corporate_finance.revenue_forecast",
+     "arguments": {
+      "company": "XYZ",
+      "product": "A",
+      "sales_units_increase_percentage": 10
+     }
+    }
+   ],
+   "reference": [
+    {
+     "corporate_finance.revenue_forecast": {
+      "company": [
+       "XYZ"
+      ],
+      "product": [
+       "A",
+       "Product A"
+      ],
+      "sales_units_increase_percentage": [
+       10
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"corporate_finance.revenue_forecast\", \"arguments\": {\"company\": \"XYZ\", \"product\": \"A\", \"sales_units_increase_percentage\": 10}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_130",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_cagr",
+     "arguments": {
+      "initial_value": 2000,
+      "final_value": 3000,
+      "period_in_years": 4
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_cagr": {
+      "initial_value": [
+       2000
+      ],
+      "final_value": [
+       3000
+      ],
+      "period_in_years": [
+       4
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_cagr\", \"arguments\": {\"initial_value\": 2000, \"final_value\": 3000, \"period_in_years\": 4}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_133",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_mutual_fund_balance",
+     "arguments": {
+      "investment_amount": 50000,
+      "annual_yield": 0.05,
+      "years": 3
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_mutual_fund_balance": {
+      "investment_amount": [
+       50000
+      ],
+      "annual_yield": [
+       0.05
+      ],
+      "years": [
+       3
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_mutual_fund_balance\", \"arguments\": {\"investment_amount\": 50000, \"annual_yield\": 0.05, \"years\": 3}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_134",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "crime_record.get_record",
+     "arguments": {
+      "case_number": "CA123456",
+      "county": "San Diego County"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "crime_record.get_record": {
+      "case_number": [
+       "CA123456"
+      ],
+      "county": [
+       "San Diego",
+       "San Diego County"
+      ],
+      "details": [
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"crime_record.get_record\", \"arguments\": {\"case_number\": \"CA123456\", \"county\": \"San Diego County\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_138",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": [
+    {
+     "legal_case.fetch": {
+      "case_id": [
+       "R vs Adams",
+       "R_vs_Adams"
+      ],
+      "details": [
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": true,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "missed_call",
+   "raw_output": "The detailed case information of the R vs Adams legal case cannot be obtained directly. However, if you have the case ID, I can fetch the case information for you. Please provide the case ID."
+  },
+  {
+   "id": "multiple_160",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "get_sculpture_info",
+     "arguments": {
+      "artist_name": "James Plensa",
+      "detail": true
+     }
+    }
+   ],
+   "reference": [
+    {
+     "get_sculpture_info": {
+      "artist_name": [
+       "James Plensa"
+      ],
+      "detail": [
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"get_sculpture_info\", \"arguments\": {\"artist_name\": \"James Plensa\", \"detail\": true}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_163",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "metropolitan_museum.get_top_artworks",
+     "arguments": {
+      "number": 5,
+      "sort_by": "popularity"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "metropolitan_museum.get_top_artworks": {
+      "number": [
+       5
+      ],
+      "sort_by": [
+       "popularity"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"metropolitan_museum.get_top_artworks\", \"arguments\": {\"number\": 5, \"sort_by\": \"popularity\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_17",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "currency_conversion.get_rate",
+     "arguments": {
+      "from_currency": "Euro",
+      "to_currency": "Dollar",
+      "date": "2022-01-01"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "currency_conversion.get_rate": {
+      "from_currency": [
+       "EUR",
+       "Euro"
+      ],
+      "to_currency": [
+       "Dollar",
+       "USD"
+      ],
+      "date": [
+       "2022-01-01",
+       "01/01/2022",
+       "1/1/2022",
+       "Jan.1,2022",
+       "January 1, 2022",
+       "2022-1-1"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"currency_conversion.get_rate\", \"arguments\": {\"from_currency\": \"Euro\", \"to_currency\": \"Dollar\", \"date\": \"2022-01-01\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_174",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": [
+    {
+     "sports_ranking": {
+      "team": [
+       "Manchester United",
+       "Man United",
+       "Man U",
+       "MUFC"
+      ],
+      "league": [
+       "Premier League"
+      ],
+      "season": [
+       "",
+       2024
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": true,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "missed_call",
+   "raw_output": "The ranking of Manchester United in the Premier League is 12th place."
+  },
+  {
+   "id": "multiple_179",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": [
+    {
+     "poker_probability.full_house": {
+      "deck_size": [
+       52
+      ],
+      "hand_size": [
+       5
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": true,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "missed_call",
+   "raw_output": "The probability of getting a full house in poker is calculated as follows:\n\n- A full house consists of three cards of one rank and two cards of another rank.\n- There are 20,000 possible 5-card hands in a standard deck of 52 cards.\n- The number of full house hands is 66.\n- Therefore, the probability is $ \\frac{66}{20,000} = 0.0033 $ or 0.33%.\n\nThe probability of getting a full house in a poker game is approximately 0.33%."
+  },
+  {
+   "id": "multiple_188",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "grocery_store.find_best",
+     "arguments": {
+      "my_location": "Berkeley",
+      "products": [
+       "tomatoes",
+       "pet food"
+      ],
+      "rating": 4.5
+     }
+    }
+   ],
+   "reference": [
+    {
+     "grocery_store.find_best": {
+      "my_location": [
+       "Berkeley",
+       "Berkeley,California",
+       "Berkeley,CA",
+       "Berkeley, CA"
+      ],
+      "rating": [
+       4.5
+      ],
+      "products": [
+       [
+        "tomatoes",
+        "pet food"
+       ],
+       [
+        "pet food",
+        "tomatoes"
+       ],
+       [
+        "Tomatoes",
+        "Pet food"
+       ],
+       [
+        "Pet food",
+        "Tomatoes"
+       ]
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"grocery_store.find_best\", \"arguments\": {\"my_location\": \"Berkeley\", \"products\": [\"tomatoes\", \"pet food\"], \"rating\": 4.5}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_192",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "currency_conversion.convert",
+     "arguments": {
+      "amount": 150,
+      "from_currency": "Euros",
+      "to_currency": "Canadian dollars"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "currency_conversion.convert": {
+      "amount": [
+       150
+      ],
+      "from_currency": [
+       "EUR"
+      ],
+      "to_currency": [
+       "CAD"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "silent_failure",
+   "raw_output": "<tool_call>\n{\"name\": \"currency_conversion.convert\", \"arguments\": {\"amount\": 150, \"from_currency\": \"Euros\", \"to_currency\": \"Canadian dollars\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_25",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "video_games.store_price",
+     "arguments": {
+      "game_title": "Assassins Creed Valhalla",
+      "platform": "PlayStation"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "video_games.store_price": {
+      "game_title": [
+       "Assassins Creed Valhalla"
+      ],
+      "platform": [
+       "PlayStation",
+       "PS"
+      ],
+      "region": [
+       "United States",
+       "US",
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"video_games.store_price\", \"arguments\": {\"game_title\": \"Assassins Creed Valhalla\", \"platform\": \"PlayStation\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_26",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "game_rewards.get",
+     "arguments": {
+      "game": "Fortnite",
+      "platform": "PlayStation"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "game_rewards.get": {
+      "game": [
+       "Fortnite"
+      ],
+      "platform": [
+       "Playstation",
+       "PS"
+      ],
+      "mission": [
+       ""
+      ],
+      "trophy": [
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"game_rewards.get\", \"arguments\": {\"game\": \"Fortnite\", \"platform\": \"PlayStation\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_3",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "EuclideanDistance.calculate",
+     "arguments": {
+      "pointA": [
+       3,
+       4
+      ],
+      "pointB": [
+       1,
+       2
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "EuclideanDistance.calculate": {
+      "pointA": [
+       [
+        3,
+        4
+       ]
+      ],
+      "pointB": [
+       [
+        1,
+        2
+       ]
+      ],
+      "rounding": [
+       "",
+       0
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"EuclideanDistance.calculate\", \"arguments\": {\"pointA\": [3, 4], \"pointB\": [1, 2]}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_36",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "kinematics.calculate_speed_from_rest",
+     "arguments": {
+      "distance": 20,
+      "time": 4
+     }
+    }
+   ],
+   "reference": [
+    {
+     "kinematics.calculate_speed_from_rest": {
+      "distance": [
+       20
+      ],
+      "time": [
+       4
+      ],
+      "initial_speed": [
+       0,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"kinematics.calculate_speed_from_rest\", \"arguments\": {\"distance\": 20, \"time\": 4}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_37",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "kinematics.final_velocity",
+     "arguments": {
+      "initial_velocity": 40,
+      "time": 6
+     }
+    }
+   ],
+   "reference": [
+    {
+     "kinematics.final_velocity": {
+      "initial_velocity": [
+       40
+      ],
+      "time": [
+       6
+      ],
+      "acceleration": [
+       -9.81,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"kinematics.final_velocity\", \"arguments\": {\"initial_velocity\": 40, \"time\": 6}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_41",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "magnetic_field.calculate",
+     "arguments": {
+      "I": 10,
+      "r": 0.01
+     }
+    }
+   ],
+   "reference": [
+    {
+     "magnetic_field.calculate": {
+      "I": [
+       10
+      ],
+      "r": [
+       0.01
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"magnetic_field.calculate\", \"arguments\": {\"I\": 10, \"r\": 0.01}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_46",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "sort_list",
+     "arguments": {
+      "elements": [
+       "Sam",
+       "Alice",
+       "Jack"
+      ],
+      "order": "asc"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "sort_list": {
+      "elements": [
+       [
+        "Sam",
+        "Alice",
+        "Jack"
+       ]
+      ],
+      "order": [
+       "asc",
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"sort_list\", \"arguments\": {\"elements\": [\"Sam\", \"Alice\", \"Jack\"], \"order\": \"asc\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_54",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "corporate_finance.dividend_data",
+     "arguments": {
+      "company": "Apple Inc",
+      "years": 5
+     }
+    }
+   ],
+   "reference": [
+    {
+     "corporate_finance.dividend_data": {
+      "company": [
+       "Apple Inc",
+       "Apple",
+       "Apple Inc."
+      ],
+      "years": [
+       5
+      ],
+      "frequency": [
+       "",
+       "annually"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"corporate_finance.dividend_data\", \"arguments\": {\"company\": \"Apple Inc\", \"years\": 5}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_58",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "lawyer.search",
+     "arguments": {
+      "location": "Los Angeles",
+      "expertise": "Divorce"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "lawyer.search": {
+      "location": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "expertise": [
+       "Divorce"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"lawyer.search\", \"arguments\": {\"location\": \"Los Angeles\", \"expertise\": \"Divorce\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_67",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "translate",
+     "arguments": {
+      "text": "Hello, how are you?",
+      "source_language": "English",
+      "target_language": "French"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "translate": {
+      "text": [
+       "Hello, how are you?"
+      ],
+      "source_language": [
+       "English"
+      ],
+      "target_language": [
+       "French"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello, how are you?\", \"source_language\": \"English\", \"target_language\": \"French\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_81",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "concert.book_ticket",
+     "arguments": {
+      "artist": "Eminem",
+      "location": "New York City",
+      "add_ons": [
+       "Backstage Pass"
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "concert.book_ticket": {
+      "artist": [
+       "Eminem"
+      ],
+      "location": [
+       "New York City",
+       "NYC"
+      ],
+      "add_ons": [
+       [
+        "Backstage Pass"
+       ]
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"concert.book_ticket\", \"arguments\": {\"artist\": \"Eminem\", \"location\": \"New York City\", \"add_ons\": [\"Backstage Pass\"]}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_82",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "music.generate",
+     "arguments": {
+      "key": "C Major",
+      "tempo": 120
+     }
+    }
+   ],
+   "reference": [
+    {
+     "music.generate": {
+      "key": [
+       "C Major"
+      ],
+      "tempo": [
+       120
+      ],
+      "time_signature": [
+       "",
+       "4/4"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"music.generate\", \"arguments\": {\"key\": \"C Major\", \"tempo\": 120}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_84",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "getTopGoalScorers",
+     "arguments": {
+      "competition": "UEFA Champions League",
+      "team": "Barcelona",
+      "number": 10
+     }
+    }
+   ],
+   "reference": [
+    {
+     "getTopGoalScorers": {
+      "competition": [
+       "UEFA Champions League"
+      ],
+      "team": [
+       "Barcelona"
+      ],
+      "number": [
+       10
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"getTopGoalScorers\", \"arguments\": {\"competition\": \"UEFA Champions League\", \"team\": \"Barcelona\", \"number\": 10}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_87",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "games.update.find",
+     "arguments": {
+      "game": "Cyberpunk 2077",
+      "platform": "Xbox"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "games.update.find": {
+      "game": [
+       "Cyberpunk 2077"
+      ],
+      "platform": [
+       "Xbox"
+      ],
+      "region": [
+       "",
+       "global"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"games.update.find\", \"arguments\": {\"game\": \"Cyberpunk 2077\", \"platform\": \"Xbox\"}}\n</tool_call>"
+  },
+  {
+   "id": "multiple_95",
+   "category": "multiple",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "currency_exchange.convert",
+     "arguments": {
+      "amount": 200,
+      "from_currency": "euros",
+      "to_currency": "us_dollars",
+      "live_conversion": true
+     }
+    }
+   ],
+   "reference": [
+    {
+     "currency_exchange.convert": {
+      "amount": [
+       200
+      ],
+      "from_currency": [
+       "EUR"
+      ],
+      "to_currency": [
+       "USD"
+      ],
+      "live_conversion": [
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "silent_failure",
+   "raw_output": "<tool_call>\n{\"name\": \"currency_exchange.convert\", \"arguments\": {\"amount\": 200, \"from_currency\": \"euros\", \"to_currency\": \"us_dollars\", \"live_conversion\": true}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_101",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_speed",
+     "arguments": {
+      "distance": 450,
+      "time": 20,
+      "to_unit": "km/h"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_speed": {
+      "distance": [
+       450
+      ],
+      "time": [
+       20
+      ],
+      "to_unit": [
+       "km/h"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_speed\", \"arguments\": {\"distance\": 450, \"time\": 20, \"to_unit\": \"km/h\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_103",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "mathematics.calculate_area_under_curve",
+     "arguments": {
+      "polynomial": [
+       3,
+       2,
+       -4
+      ],
+      "limits": [
+       -1,
+       2
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "mathematics.calculate_area_under_curve": {
+      "polynomial": [
+       [
+        3.0,
+        2.0,
+        -4.0
+       ]
+      ],
+      "limits": [
+       [
+        -1.0,
+        2.0
+       ]
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"mathematics.calculate_area_under_curve\", \"arguments\": {\"polynomial\": [3, 2, -4], \"limits\": [-1, 2]}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_118",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "stats.t_test",
+     "arguments": {
+      "array_1": [
+       10,
+       15,
+       12,
+       14,
+       11
+      ],
+      "array_2": [
+       18,
+       16,
+       17,
+       20,
+       22
+      ],
+      "alpha": 0.05
+     }
+    }
+   ],
+   "reference": [
+    {
+     "stats.t_test": {
+      "array_1": [
+       [
+        10,
+        15,
+        12,
+        14,
+        11
+       ]
+      ],
+      "array_2": [
+       [
+        18,
+        16,
+        17,
+        20,
+        22
+       ]
+      ],
+      "alpha": [
+       0.05
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"stats.t_test\", \"arguments\": {\"array_1\": [10, 15, 12, 14, 11], \"array_2\": [18, 16, 17, 20, 22], \"alpha\": 0.05}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_123",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "hypothesis_testing.two_sample_t_test",
+     "arguments": {
+      "group1": [
+       12.4,
+       15.6,
+       11.2,
+       18.9
+      ],
+      "group2": [
+       10.5,
+       9.8,
+       15.2,
+       13.8
+      ],
+      "alpha": 0.05
+     }
+    }
+   ],
+   "reference": [
+    {
+     "hypothesis_testing.two_sample_t_test": {
+      "group1": [
+       [
+        12.4,
+        15.6,
+        11.2,
+        18.9
+       ]
+      ],
+      "group2": [
+       [
+        10.5,
+        9.8,
+        15.2,
+        13.8
+       ]
+      ],
+      "alpha": [
+       0.05,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"hypothesis_testing.two_sample_t_test\", \"arguments\": {\"group1\": [12.4, 15.6, 11.2, 18.9], \"group2\": [10.5, 9.8, 15.2, 13.8], \"alpha\": 0.05}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_124",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "t_test",
+     "arguments": {
+      "dataset_A": [
+       12,
+       24,
+       36
+      ],
+      "dataset_B": [
+       15,
+       30,
+       45
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "t_test": {
+      "dataset_A": [
+       [
+        12,
+        24,
+        36
+       ]
+      ],
+      "dataset_B": [
+       [
+        15,
+        30,
+        45
+       ]
+      ],
+      "alpha": [
+       0.05,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"t_test\", \"arguments\": {\"dataset_A\": [12, 24, 36], \"dataset_B\": [15, 30, 45]}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_130",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "finance_calculator.npv",
+     "arguments": {
+      "cash_flows": [
+       -50000,
+       10000,
+       15000,
+       20000,
+       25000,
+       30000
+      ],
+      "discount_rate": 8
+     }
+    }
+   ],
+   "reference": [
+    {
+     "finance_calculator.npv": {
+      "cash_flows": [
+       [
+        -50000,
+        10000,
+        15000,
+        20000,
+        25000,
+        30000
+       ]
+      ],
+      "discount_rate": [
+       0.08
+      ],
+      "years": [
+       "",
+       []
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "silent_failure",
+   "raw_output": "<tool_call>\n{\"name\": \"finance_calculator.npv\", \"arguments\": {\"cash_flows\": [-50000, 10000, 15000, 20000, 25000, 30000], \"discount_rate\": 8}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_154",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_future_value",
+     "arguments": {
+      "present_value": 5000,
+      "annual_interest_rate": 0.05,
+      "years": 10
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_future_value": {
+      "present_value": [
+       5000
+      ],
+      "annual_interest_rate": [
+       0.05
+      ],
+      "years": [
+       10
+      ],
+      "compounds_per_year": [
+       "",
+       1
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_future_value\", \"arguments\": {\"present_value\": 5000, \"annual_interest_rate\": 0.05, \"years\": 10}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_157",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "criminal_history.check_felonies",
+     "arguments": {
+      "full_name": "John Doe",
+      "birth_date": "01-01-1980",
+      "state": "California"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "criminal_history.check_felonies": {
+      "full_name": [
+       "John Doe"
+      ],
+      "birth_date": [
+       "01-01-1980"
+      ],
+      "state": [
+       "California",
+       "CA"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"criminal_history.check_felonies\", \"arguments\": {\"full_name\": \"John Doe\", \"birth_date\": \"01-01-1980\", \"state\": \"California\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_16",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculus.derivative",
+     "arguments": {
+      "function": "2x^2",
+      "value": 1
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculus.derivative": {
+      "function": [
+       "2x**2",
+       "lambda x: 2x**2"
+      ],
+      "value": [
+       1
+      ],
+      "function_variable": [
+       "x",
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculus.derivative\", \"arguments\": {\"function\": \"2x^2\", \"value\": 1}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_160",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "get_case_info",
+     "arguments": {
+      "docket": "2022/AL2562",
+      "court": "California",
+      "info_type": "victim"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "get_case_info": {
+      "docket": [
+       "2022/AL2562"
+      ],
+      "court": [
+       "California",
+       "CA"
+      ],
+      "info_type": [
+       "victim"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"get_case_info\", \"arguments\": {\"docket\": \"2022/AL2562\", \"court\": \"California\", \"info_type\": \"victim\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_187",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "get_current_weather",
+     "arguments": {
+      "location": "Seattle, Washington"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "get_current_weather": {
+      "location": [
+       "Seattle",
+       "Seattle, Washington"
+      ],
+      "include_temperature": [
+       true,
+       ""
+      ],
+      "include_humidity": [
+       true,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"get_current_weather\", \"arguments\": {\"location\": \"Seattle, Washington\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_201",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "estimate_population",
+     "arguments": {
+      "species": "pandas",
+      "country": "China"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "estimate_population": {
+      "species": [
+       "panda",
+       "pandas"
+      ],
+      "country": [
+       "China",
+       "CN"
+      ],
+      "year": [
+       "",
+       2024
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"estimate_population\", \"arguments\": {\"species\": \"pandas\", \"country\": \"China\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_214",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "event_finder.find_upcoming",
+     "arguments": {
+      "location": "New York",
+      "genre": "rock"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "event_finder.find_upcoming": {
+      "location": [
+       "New York",
+       "New York, NY",
+       "NYC"
+      ],
+      "genre": [
+       "Rock",
+       "rock"
+      ],
+      "days_ahead": [
+       30
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"event_finder.find_upcoming\", \"arguments\": {\"location\": \"New York\", \"genre\": \"rock\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_233",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 0,
+   "predicted": [],
+   "reference": [
+    {
+     "european_history.get_event_date": {
+      "event_name": [
+       "Treaty of Tordesillas"
+      ],
+      "format": [
+       "YYYY"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": true,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "missed_call",
+   "raw_output": "The Treaty of Tordesillas took place in 1494."
+  },
+  {
+   "id": "simple_python_249",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "religion.history_info",
+     "arguments": {
+      "religion": "Christianity",
+      "till_century": 14
+     }
+    }
+   ],
+   "reference": [
+    {
+     "religion.history_info": {
+      "religion": [
+       "Christianity"
+      ],
+      "till_century": [
+       14
+      ],
+      "include_people": [
+       false,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"religion.history_info\", \"arguments\": {\"religion\": \"Christianity\", \"till_century\": 14}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_258",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "mix_paint_color",
+     "arguments": {
+      "color1": "yellow",
+      "color2": "blue",
+      "lightness": 60
+     }
+    }
+   ],
+   "reference": [
+    {
+     "mix_paint_color": {
+      "color1": [
+       "yellow"
+      ],
+      "color2": [
+       "blue"
+      ],
+      "lightness": [
+       60
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"mix_paint_color\", \"arguments\": {\"color1\": \"yellow\", \"color2\": \"blue\", \"lightness\": 60}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_265",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "sculpture_search",
+     "arguments": {
+      "location": "Chicago",
+      "time_frame": "19th century"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "sculpture_search": {
+      "location": [
+       "Chicago",
+       "Chicago, IL"
+      ],
+      "time_frame": [
+       "19th century"
+      ],
+      "material": [
+       "",
+       "all"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"sculpture_search\", \"arguments\": {\"location\": \"Chicago\", \"time_frame\": \"19th century\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_270",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "building.get_dimensions",
+     "arguments": {
+      "building_name": "Empire State Building",
+      "unit": "feet"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "building.get_dimensions": {
+      "building_name": [
+       "Empire State Building",
+       "Empire State"
+      ],
+      "unit": [
+       "feet"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"building.get_dimensions\", \"arguments\": {\"building_name\": \"Empire State Building\", \"unit\": \"feet\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_287",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "concert.search",
+     "arguments": {
+      "genre": "classical",
+      "location": "Los Angeles",
+      "date": "this weekend",
+      "price_range": "cheap"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "concert.search": {
+      "genre": [
+       "classical"
+      ],
+      "location": [
+       "Los Angeles",
+       "LA"
+      ],
+      "date": [
+       "this weekend"
+      ],
+      "price_range": [
+       "cheap"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"concert.search\", \"arguments\": {\"genre\": \"classical\", \"location\": \"Los Angeles\", \"date\": \"this weekend\", \"price_range\": \"cheap\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_288",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "concert_booking.book_ticket",
+     "arguments": {
+      "artist": "Eminem",
+      "city": "New York City",
+      "num_tickets": 2
+     }
+    }
+   ],
+   "reference": [
+    {
+     "concert_booking.book_ticket": {
+      "artist": [
+       "Eminem"
+      ],
+      "city": [
+       "New York City",
+       "New York City, NY",
+       "NYC"
+      ],
+      "num_tickets": [
+       2
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"concert_booking.book_ticket\", \"arguments\": {\"artist\": \"Eminem\", \"city\": \"New York City\", \"num_tickets\": 2}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_3",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "algebra.quadratic_roots",
+     "arguments": {
+      "a": 1,
+      "b": -3,
+      "c": 2
+     }
+    }
+   ],
+   "reference": [
+    {
+     "algebra.quadratic_roots": {
+      "a": [
+       1
+      ],
+      "b": [
+       -3
+      ],
+      "c": [
+       2
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"algebra.quadratic_roots\", \"arguments\": {\"a\": 1, \"b\": -3, \"c\": 2}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_311",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "sports_db.find_athlete",
+     "arguments": {
+      "name": "LeBron James",
+      "sport": "Basketball"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "sports_db.find_athlete": {
+      "name": [
+       "Lebron James"
+      ],
+      "sport": [
+       "Basketball"
+      ],
+      "team": [
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"sports_db.find_athlete\", \"arguments\": {\"name\": \"LeBron James\", \"sport\": \"Basketball\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_320",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "sports_ranking.get_team_position",
+     "arguments": {
+      "team": "Golden State Warriors",
+      "season": "2022-2023"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "sports_ranking.get_team_position": {
+      "team": [
+       "Golden State Warriors",
+       "GSW"
+      ],
+      "season": [
+       "2022-2023"
+      ],
+      "detailed": [
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"sports_ranking.get_team_position\", \"arguments\": {\"team\": \"Golden State Warriors\", \"season\": \"2022-2023\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_329",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "monopoly_odds_calculator",
+     "arguments": {
+      "number": 7,
+      "dice_number": 2
+     }
+    }
+   ],
+   "reference": [
+    {
+     "monopoly_odds_calculator": {
+      "number": [
+       7
+      ],
+      "dice_number": [
+       2
+      ],
+      "dice_faces": [
+       6,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"monopoly_odds_calculator\", \"arguments\": {\"number\": 7, \"dice_number\": 2}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_35",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "vegan_restaurant.find_nearby",
+     "arguments": {
+      "location": "New York",
+      "operating_hours": 24
+     }
+    }
+   ],
+   "reference": [
+    {
+     "vegan_restaurant.find_nearby": {
+      "location": [
+       "New York, NY"
+      ],
+      "operating_hours": [
+       23
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "silent_failure",
+   "raw_output": "<tool_call>\n{\"name\": \"vegan_restaurant.find_nearby\", \"arguments\": {\"location\": \"New York\", \"operating_hours\": 24}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_358",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "recipe_search",
+     "arguments": {
+      "diet": [
+       "Gluten Free"
+      ],
+      "time_limit": 30
+     }
+    }
+   ],
+   "reference": [
+    {
+     "recipe_search": {
+      "diet": [
+       [
+        "Gluten Free"
+       ],
+       [
+        "GF"
+       ],
+       [
+        "gluten free"
+       ]
+      ],
+      "time_limit": [
+       30
+      ],
+      "dish": [
+       "cookie"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": false,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "malformed_or_invalid",
+   "raw_output": "<tool_call>\n{\"name\": \"recipe_search\", \"arguments\": {\"diet\": [\"Gluten Free\"], \"time_limit\": 30}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_368",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_cooking_time",
+     "arguments": {
+      "weight_kg": 1.5
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_cooking_time": {
+      "weight_kg": [
+       1.5
+      ],
+      "cooking_method": [
+       "",
+       "roast"
+      ],
+      "temp_celsius": [
+       "",
+       180
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_cooking_time\", \"arguments\": {\"weight_kg\": 1.5}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_371",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "whole_foods.check_price",
+     "arguments": {
+      "location": "Los Angeles",
+      "items": [
+       "tomatoes",
+       "lettuce"
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "whole_foods.check_price": {
+      "location": [
+       "Los Angeles",
+       "LA"
+      ],
+      "items": [
+       [
+        "tomatoes",
+        "lettuce"
+       ]
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"whole_foods.check_price\", \"arguments\": {\"location\": \"Los Angeles\", \"items\": [\"tomatoes\", \"lettuce\"]}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_386",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "book_hotel",
+     "arguments": {
+      "hotel_name": "Hotel Paradise",
+      "location": "Las Vegas",
+      "room_type": "luxury",
+      "start_date": "05-12-2022",
+      "stay_duration": 3
+     }
+    }
+   ],
+   "reference": [
+    {
+     "book_hotel": {
+      "hotel_name": [
+       "Hotel Paradise"
+      ],
+      "location": [
+       "Las Vegas",
+       "LV"
+      ],
+      "room_type": [
+       "luxury",
+       "Luxury"
+      ],
+      "start_date": [
+       "05-12-2022",
+       "2022-05-12",
+       "12/05/2022",
+       "May.12,2022",
+       "May 12, 2022"
+      ],
+      "stay_duration": [
+       3
+      ],
+      "view": [
+       "city view",
+       "city"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"book_hotel\", \"arguments\": {\"hotel_name\": \"Hotel Paradise\", \"location\": \"Las Vegas\", \"room_type\": \"luxury\", \"start_date\": \"05-12-2022\", \"stay_duration\": 3}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_51",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_entropy_change",
+     "arguments": {
+      "initial_temp": 300,
+      "final_temp": 400,
+      "heat_capacity": 5
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_entropy_change": {
+      "initial_temp": [
+       300
+      ],
+      "final_temp": [
+       400
+      ],
+      "heat_capacity": [
+       5
+      ],
+      "isothermal": [
+       "",
+       true
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_entropy_change\", \"arguments\": {\"initial_temp\": 300, \"final_temp\": 400, \"heat_capacity\": 5}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_53",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "fetch_DNA_sequence",
+     "arguments": {
+      "DNA_id": "DNA123"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "fetch_DNA_sequence": {
+      "DNA_id": [
+       "DNA123"
+      ],
+      "format": [
+       "",
+       "fasta"
+      ],
+      "upstream": [
+       "",
+       0
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"fetch_DNA_sequence\", \"arguments\": {\"DNA_id\": \"DNA123\"}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_57",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_cell_density",
+     "arguments": {
+      "optical_density": 0.6,
+      "dilution": 5
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_cell_density": {
+      "optical_density": [
+       0.6
+      ],
+      "dilution": [
+       5
+      ],
+      "calibration_factor": [
+       1000000000.0,
+       ""
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_cell_density\", \"arguments\": {\"optical_density\": 0.6, \"dilution\": 5}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_82",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_average",
+     "arguments": {
+      "numbers": [
+       12,
+       15,
+       18,
+       20,
+       21,
+       26,
+       30
+      ]
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_average": {
+      "numbers": [
+       [
+        12.0,
+        15.0,
+        18.0,
+        20.0,
+        21.0,
+        26.0,
+        30.0
+       ]
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": true,
+    "missed_call": false,
+    "silent_failure": false,
+    "abstain_ok": false,
+    "tool_call_success": true
+   },
+   "label": "success",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_average\", \"arguments\": {\"numbers\": [12, 15, 18, 20, 21, 26, 30]}}\n</tool_call>"
+  },
+  {
+   "id": "simple_python_83",
+   "category": "simple_python",
+   "needs_call": true,
+   "calls_made": 1,
+   "predicted": [
+    {
+     "name": "calculate_distance",
+     "arguments": {
+      "coord1": [
+       33.4484,
+       112.074
+      ],
+      "coord2": [
+       34.0522,
+       118.2437
+      ],
+      "unit": "miles"
+     }
+    }
+   ],
+   "reference": [
+    {
+     "calculate_distance": {
+      "coord1": [
+       [
+        33.4484,
+        -112.074
+       ]
+      ],
+      "coord2": [
+       [
+        34.0522,
+        -118.2437
+       ]
+      ],
+      "unit": [
+       "miles"
+      ]
+     }
+    }
+   ],
+   "outcomes": {
+    "schema_valid": true,
+    "ast_match": false,
+    "missed_call": false,
+    "silent_failure": true,
+    "abstain_ok": false,
+    "tool_call_success": false
+   },
+   "label": "silent_failure",
+   "raw_output": "<tool_call>\n{\"name\": \"calculate_distance\", \"arguments\": {\"coord1\": [33.4484, 112.0740], \"coord2\": [34.0522, 118.2437], \"unit\": \"miles\"}}\n</tool_call>"
+  }
+ ]
+}
