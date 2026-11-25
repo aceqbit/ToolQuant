@@ -167,6 +167,19 @@ def write_report(
     ]
     actual_mb = info["file_bytes"] / 1e6
     pred_mb = predicted_bits / 8 / 1e6
+    # Same size model with the layout of this ONNX build: FP32 scales and FP32 unquantized params.
+    other_params = round(
+        (
+            predicted_bits
+            - sum(pt_group_params[g] * (bits_per_group[g] + 16 / 128) for g in pt_group_params)
+        )
+        / 16
+    )
+    onnx_layout_bits = (
+        sum(pt_group_params[g] * (bits_per_group[g] + 32 / 128) for g in pt_group_params)
+        + other_params * 32
+    )
+    onnx_pred_mb = onnx_layout_bits / 8 / 1e6
     utc = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     rep = {
         "name": name,
@@ -184,6 +197,8 @@ def write_report(
         "predicted_mb_fp16_other": pred_mb,
         "gap_mb": actual_mb - pred_mb,
         "gap_ratio": actual_mb / pred_mb,
+        "predicted_mb_onnx_layout": onnx_pred_mb,
+        "gap_mb_onnx_layout": actual_mb - onnx_pred_mb,
         "predicted_decoder_mb": pt_decoder_predicted_bits / 8 / 1e6,
         "note": "ONNX build keeps embedding and lm_head in FP32 and scales in FP32.",
     }
@@ -203,6 +218,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--map", help="map JSON path, or 'int4' / 'int8'", required=True)
     ap.add_argument("--granularity", default="block")
+    ap.add_argument("--report-only", action="store_true", help="reuse the built model dir")
     a = ap.parse_args()
     cfg = AutoConfig.from_pretrained("data/cache/qwen3-0.6b-hf")
     with torch.device("meta"):
@@ -213,7 +229,10 @@ def main() -> None:
     else:
         mp = json.loads(Path(a.map).read_text(encoding="utf-8"))
         name, bits = Path(a.map).stem, mp["bits_per_group"]
-    out = build_named(name, bits, a.granularity)
+    if a.report_only:
+        out = ONNX_ROOT / name
+    else:
+        out = build_named(name, bits, a.granularity)
     pred = total_bits(info["params"], bits, info["other_params"])
     pred_dec = total_bits(info["params"], bits, 0)
     print(write_report(name, bits, out, info["params"], pred, pred_dec, a.granularity))

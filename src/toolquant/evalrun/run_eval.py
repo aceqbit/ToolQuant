@@ -155,7 +155,9 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True, help="name, e.g. fp32")
     ap.add_argument("--split", choices=["probe", "validation"], required=True)
-    ap.add_argument("--backend", choices=["hf"], default="hf")
+    ap.add_argument("--backend", choices=["hf", "onnx"], default="hf")
+    ap.add_argument("--onnx-dir", help="model directory for --backend onnx")
+    ap.add_argument("--map", help="map JSON (recorded as run params)")
     ap.add_argument("--model-path", default=DEFAULT_HF_PATH)
     ap.add_argument("--dtype", default="float32")
     ap.add_argument("--device", default="cpu")
@@ -164,17 +166,23 @@ def main() -> None:
     ap.add_argument("--no-mlflow", action="store_true")
     a = ap.parse_args()
 
-    from toolquant.evalrun.generate import generate_hf, load_hf
+    from toolquant.evalrun.generate import generate_hf, generate_onnx, load_hf
 
     tasks = get_tasks(a.split, a.limit)
-    model, tok = load_hf(a.model_path, a.dtype, a.device)
     t0 = time.time()
 
     def prog(done: int, total: int) -> None:
         print(f"{done}/{total} {time.time() - t0:.0f}s", flush=True)
 
-    texts = generate_hf(model, tok, tasks, a.batch_size, progress=prog)
-    meta = {
+    if a.backend == "hf":
+        model, tok = load_hf(a.model_path, a.dtype, a.device)
+        texts = generate_hf(model, tok, tasks, a.batch_size, progress=prog)
+    else:
+        from transformers import AutoTokenizer
+
+        tok = AutoTokenizer.from_pretrained(a.model_path)
+        texts = generate_onnx(a.onnx_dir, tok, tasks, progress=prog)
+    meta: dict[str, Any] = {
         "model": MODEL_ID,
         "revision": model_revision(a.model_path),
         "seed": 0,
@@ -182,6 +190,20 @@ def main() -> None:
         "backend": a.backend,
         "gen_seconds": time.time() - t0,
     }
+    if a.onnx_dir:
+        d = Path(a.onnx_dir)
+        meta["onnx_dir"] = str(d)
+        meta["onnx_size_mb"] = sum(p.stat().st_size for p in d.iterdir() if "onnx" in p.name) / 1e6
+        meta["extra_metrics"] = {"size_mb": meta["onnx_size_mb"]}
+    if a.map:
+        mp = json.loads(Path(a.map).read_text(encoding="utf-8"))
+        meta.update(
+            map_kind=mp.get("kind"),
+            budget=mp.get("budget_f"),
+            group_size=mp.get("group_size"),
+            granularity=mp.get("granularity"),
+            map_file=a.map,
+        )
     path = write_result(
         a.config, a.split, score_texts(tasks, texts), meta, log_mlflow=not a.no_mlflow
     )

@@ -41,6 +41,37 @@ def load_hf(path: str, dtype: str = "float32", device: str = "cpu") -> tuple[Any
     return model.to(device), tok
 
 
+def generate_onnx(
+    model_dir: str,
+    tok: Any,
+    tasks: list[Task],
+    max_new_tokens: int = MAX_NEW_TOKENS,
+    progress: Callable[[int, int], None] | None = None,
+    return_ids: bool = False,
+) -> dict[str, Any]:
+    """Greedy decoding with onnxruntime-genai (one prompt at a time). Stops at end-of-turn."""
+    import onnxruntime_genai as og
+
+    model = og.Model(str(model_dir))
+    out: dict[str, Any] = {}
+    for i, t in enumerate(tasks):
+        ids = tok(build_prompt(tok, t), return_tensors="pt").input_ids[0].tolist()
+        params = og.GeneratorParams(model)
+        params.set_search_options(
+            do_sample=False, max_length=len(ids) + max_new_tokens, batch_size=1
+        )
+        gen = og.Generator(model, params)
+        gen.append_tokens(ids)
+        new: list[int] = []
+        while not gen.is_done() and len(new) < max_new_tokens:
+            gen.generate_next_token()
+            new.append(int(gen.get_next_tokens()[0]))
+        out[t.id] = new if return_ids else tok.decode(new, skip_special_tokens=True)
+        if progress:
+            progress(i + 1, len(tasks))
+    return out
+
+
 def generate_hf(
     model: Any,
     tok: Any,

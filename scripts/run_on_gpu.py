@@ -4,6 +4,7 @@ Notebook usage (one cell each):
     !git clone https://github.com/aceqbit/ToolQuant /kaggle/working/ToolQuant   # or /content/ToolQuant
     !python /kaggle/working/ToolQuant/scripts/run_on_gpu.py --task eval
     !python /kaggle/working/ToolQuant/scripts/run_on_gpu.py --task probe
+    !python /kaggle/working/ToolQuant/scripts/run_on_gpu.py --task all     # both, in one go
 Then download `toolquant_results.zip` (printed at the end) and unzip it into the repo's `results/`.
 
 Tasks:
@@ -48,16 +49,16 @@ def bundle() -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--task", choices=["eval", "probe"], required=True)
+    ap.add_argument("--task", choices=["eval", "probe", "all"], required=True)
     ap.add_argument("--batch-size", default="32")
     a = ap.parse_args()
     setup()
     py = sys.executable
-    if a.task == "eval":
+    if a.task in ("eval", "all"):
         for split in ("probe", "validation"):
             sh(py, "-m", "toolquant.evalrun.run_eval", "--config", "fp16", "--split", split,
                "--dtype", "float16", "--device", "cuda", "--batch-size", a.batch_size, "--no-mlflow")
-    elif a.task == "probe":
+    if a.task in ("probe", "all"):
         sh(py, "-m", "toolquant.quant.probe", "--device", "cuda", "--dtype", "float16",
            "--batch-size", a.batch_size)
     bundle()
