@@ -77,9 +77,8 @@ def start_run(run_name: str, **param_kwargs: Any) -> Iterator[Any]:
     """Start an MLflow run in experiment `toolquant` with the standard params logged."""
     import mlflow
 
-    uri = os.environ.get("MLFLOW_TRACKING_URI")
-    if uri:
-        mlflow.set_tracking_uri(uri)
+    # Default to the local sqlite store; `just mlflow` serves the same file.
+    mlflow.set_tracking_uri(os.environ.get("MLFLOW_TRACKING_URI") or "sqlite:///mlflow.db")
     mlflow.set_experiment(EXPERIMENT)
     with mlflow.start_run(run_name=run_name) as run:
         mlflow.log_params(standard_params(**param_kwargs))
