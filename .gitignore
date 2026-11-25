@@ -1,0 +1,14 @@
+*.onnx
+*.onnx.data
+*.gguf
+data/cache/
+mlruns/
+mlartifacts/
+mlflow.db
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
