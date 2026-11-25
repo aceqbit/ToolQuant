@@ -1,0 +1,328 @@
+{
+ "name": "int8",
+ "utc": "20261125T162837Z",
+ "bits_per_group": {
+  "layer00": 8,
+  "layer01": 8,
+  "layer02": 8,
+  "layer03": 8,
+  "layer04": 8,
+  "layer05": 8,
+  "layer06": 8,
+  "layer07": 8,
+  "layer08": 8,
+  "layer09": 8,
+  "layer10": 8,
+  "layer11": 8,
+  "layer12": 8,
+  "layer13": 8,
+  "layer14": 8,
+  "layer15": 8,
+  "layer16": 8,
+  "layer17": 8,
+  "layer18": 8,
+  "layer19": 8,
+  "layer20": 8,
+  "layer21": 8,
+  "layer22": 8,
+  "layer23": 8,
+  "layer24": 8,
+  "layer25": 8,
+  "layer26": 8,
+  "layer27": 8
+ },
+ "per_group": {
+  "layer00": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer01": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer02": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer03": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer04": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer05": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer06": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer07": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer08": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer09": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer10": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer11": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer12": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer13": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer14": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer15": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer16": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer17": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer18": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer19": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer20": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer21": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer22": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer23": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer24": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer25": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer26": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ],
+  "layer27": [
+   {
+    "op": "MatMulNBits",
+    "bits": 8
+   }
+  ]
+ },
+ "groups_with_wrong_precision": [],
+ "group_param_match": {
+  "layer00": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer01": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer02": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer03": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer04": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer05": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer06": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer07": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer08": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer09": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer10": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer11": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer12": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer13": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer14": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer15": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer16": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer17": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer18": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer19": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer20": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer21": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer22": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer23": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer24": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer25": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer26": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  },
+  "layer27": {
+   "pytorch": 15728640,
+   "onnx": 15728640
+  }
+ },
+ "param_mismatch_groups": [],
+ "file_mb": 1098.003297,
+ "predicted_mb_fp16_other": 758.5792,
+ "gap_mb": 339.42409699999996,
+ "gap_ratio": 1.4474471446092905,
+ "predicted_mb_onnx_layout": 1076.75648,
+ "gap_mb_onnx_layout": 21.246816999999965,
+ "predicted_decoder_mb": 447.2832,
+ "note": "ONNX build keeps embedding and lm_head in FP32 and scales in FP32."
+}

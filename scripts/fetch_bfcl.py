@@ -29,8 +29,10 @@ def main() -> None:
         whl = next(Path(tmp).glob("bfcl_eval-*"))
         with zipfile.ZipFile(whl) as z:
             for f in FILES:
-                for sub, out in ((f"bfcl_eval/data/{f}", dest / f),
-                                 (f"bfcl_eval/data/possible_answer/{f}", dest / "possible_answer" / f)):
+                for sub, out in (
+                    (f"bfcl_eval/data/{f}", dest / f),
+                    (f"bfcl_eval/data/possible_answer/{f}", dest / "possible_answer" / f),
+                ):
                     try:
                         with z.open(sub) as src, open(out, "wb") as dst:
                             shutil.copyfileobj(src, dst)

@@ -43,4 +43,3 @@ if __name__ == "__main__":
             print(n.name, n.op_type, "bits=", bits)
         if n.op_type == "MatMul":
             print("left as MatMul:", n.name)
-
