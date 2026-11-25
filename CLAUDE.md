@@ -126,3 +126,5 @@ Groups probed; probe and validation prompt counts; configurations compared; size
 ## 14. Resume rules
 
 Claim "built" and "measured". Never "first" or "novel". State the hardware next to every speed number. Do not call the CPU result "on-device". If the map does not beat the perplexity map, say so in the README and write the resume bullet about the measurement method and the finding.
+
+> **Note 2026-11-25 (spike result):** CLAUDE.md section 7 step 5 said INT8 dynamic quantization for non-4-bit groups. On ORT 1.32.0 the working route is two `MatMulNBitsQuantizer` passes (4-bit, then 8-bit with block size 128); `quantize_dynamic` is not used. The genai builder produces 4 MatMul nodes per decoder layer. BFCL AST checker is not importable; the minimal matcher is used. See docs/SPIKE.md.
