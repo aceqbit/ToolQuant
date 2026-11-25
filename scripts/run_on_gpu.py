@@ -56,11 +56,34 @@ def main() -> None:
     py = sys.executable
     if a.task in ("eval", "all"):
         for split in ("probe", "validation"):
-            sh(py, "-m", "toolquant.evalrun.run_eval", "--config", "fp16", "--split", split,
-               "--dtype", "float16", "--device", "cuda", "--batch-size", a.batch_size, "--no-mlflow")
+            sh(
+                py,
+                "-m",
+                "toolquant.evalrun.run_eval",
+                "--config",
+                "fp16",
+                "--split",
+                split,
+                "--dtype",
+                "float16",
+                "--device",
+                "cuda",
+                "--batch-size",
+                a.batch_size,
+                "--no-mlflow",
+            )
     if a.task in ("probe", "all"):
-        sh(py, "-m", "toolquant.quant.probe", "--device", "cuda", "--dtype", "float16",
-           "--batch-size", a.batch_size)
+        sh(
+            py,
+            "-m",
+            "toolquant.quant.probe",
+            "--device",
+            "cuda",
+            "--dtype",
+            "float16",
+            "--batch-size",
+            a.batch_size,
+        )
     bundle()
 
 

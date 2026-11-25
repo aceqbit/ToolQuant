@@ -177,6 +177,8 @@ def main() -> None:
     if a.backend == "hf":
         model, tok = load_hf(a.model_path, a.dtype, a.device)
         texts = generate_hf(model, tok, tasks, a.batch_size, progress=prog)
+        n_params = sum({id(p): p.numel() for p in model.parameters()}.values())
+        size_fp16_mb = n_params * 2 / 1e6  # FP16-equivalent size of the unquantized model
     else:
         from transformers import AutoTokenizer
 
@@ -190,6 +192,8 @@ def main() -> None:
         "backend": a.backend,
         "gen_seconds": time.time() - t0,
     }
+    if a.backend == "hf":
+        meta["extra_metrics"] = {"size_mb": size_fp16_mb}
     if a.onnx_dir:
         d = Path(a.onnx_dir)
         meta["onnx_dir"] = str(d)

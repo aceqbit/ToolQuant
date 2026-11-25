@@ -11,29 +11,32 @@ env:
 mlflow:
     uv run mlflow server --host 127.0.0.1 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlartifacts
 
+# CPU probe (slow: see docs/GPU.md for the GPU route)
 probe:
-    @Write-Error "not implemented: probe"; exit 1
+    uv run python -m toolquant.quant.probe
 
-allocate:
-    @Write-Error "not implemented: allocate"; exit 1
+allocate SENS:
+    uv run python -m toolquant.quant.allocate --sensitivity {{SENS}}
 
-export MAP="":
-    @Write-Error "not implemented: export"; exit 1
+# MAP is a maps/*.json path, or int4 / int8
+export MAP:
+    uv run python -m toolquant.export.apply_map --map {{MAP}}
 
-parity:
-    @Write-Error "not implemented: parity"; exit 1
+parity MAP:
+    uv run python -m toolquant.export.parity --map {{MAP}}
 
-eval:
-    @Write-Error "not implemented: eval"; exit 1
+# NAMES are directories under data/cache/onnx (validation split, CPU)
+eval *NAMES:
+    uv run python scripts/run_onnx_evals.py {{NAMES}}
 
-bench:
-    @Write-Error "not implemented: bench"; exit 1
+bench NAME:
+    uv run python -m toolquant.bench.speed --onnx-dir data/cache/onnx/{{NAME}} --name {{NAME}}
 
 serve:
     @Write-Error "not implemented: serve"; exit 1
 
 report:
-    @Write-Error "not implemented: report"; exit 1
+    uv run python -m toolquant.report
 
 lint:
     uv run ruff check src tests

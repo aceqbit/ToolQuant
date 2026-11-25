@@ -1,1 +1,0 @@
-{"baseline": {"success": 0.75, "missed_call": 0.0, "silent_failure": 0.25, "per_prompt": {"irrelevance_100": true, "irrelevance_101": true, "irrelevance_105": true, "irrelevance_109": false}, "ppl": 28.918809999023097}, "groups": {}}
