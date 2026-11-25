@@ -10,4 +10,9 @@ ToolQuant searches per-layer-group precision for a small tool-calling language m
 
 ## Reproduce
 
+**Fetch BFCL data** (public, from the `bfcl-eval` wheel; not a project dependency):
+
+```powershell
+uv run python scripts/fetch_bfcl.py   # writes data/cache/bfcl
+```
 ## Limits

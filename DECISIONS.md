@@ -12,3 +12,11 @@
 - Mixed precision: two-pass `MatMulNBitsQuantizer` (4-bit with the other nodes excluded, then 8-bit). `quantize_dynamic` is not used (it yields MatMulInteger and no INT4). See docs/SPIKE.md.
 - BFCL checker is not importable without a heavy dependency tree; write the minimal matcher. The `bfcl-eval` wheel is the data source only (not a project dependency; fetched to a local path).
 - Extra dependencies beyond section 3, kept for the code: `onnx` (graph inspection), `onnx-ir` (genai builder), `accelerate` (transformers loading), `matplotlib` (report charts).
+
+## 2026-11-25 Scoring and data (Prompt 1.2)
+- Categories: `simple_python` (400), `multiple` (200), `irrelevance` (240) = 840 prompts; probe 34/33/33, validation 366/167/207. Parallel and live categories left out to keep CPU evaluation of ~740 prompts x 6+ configs feasible. Irrelevance is the only `needs_call=false` category.
+- Matcher differences from BFCL: (a) optional arguments the model adds that are absent from the reference are allowed (CLAUDE.md section 6); BFCL would fail them; optional arguments that appear in the reference must match. (b) Strings compare lowercase with space and `,./-_*^` removed. (c) Function names compared exactly (BFCL dotted names kept). (d) bool never equals a number.
+- A malformed call attempt (bad JSON or truncated `<tool_call>`) counts as a call made (`calls_made`>0): not `missed_call`, not `silent_failure` (not schema-valid), not success. Label `malformed_or_invalid`.
+- Rate denominators: success, missed_call, silent_failure over all prompts (so paired per-prompt differences use the same population); ast_match over call-needed; abstain_ok over no-call; schema_valid over prompts with a call.
+- Oracle check on all 840 tasks (reference fed back as output): 839 pass; `simple_python_200` fails (BFCL reference quirk), kept in the data.
+- BFCL data comes from the `bfcl-eval` wheel via `scripts/fetch_bfcl.py`, not a local Gorilla checkout.
