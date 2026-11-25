@@ -20,3 +20,7 @@
 - Rate denominators: success, missed_call, silent_failure over all prompts (so paired per-prompt differences use the same population); ast_match over call-needed; abstain_ok over no-call; schema_valid over prompts with a call.
 - Oracle check on all 840 tasks (reference fed back as output): 839 pass; `simple_python_200` fails (BFCL reference quirk), kept in the data.
 - BFCL data comes from the `bfcl-eval` wheel via `scripts/fetch_bfcl.py`, not a local Gorilla checkout.
+
+## 2026-11-26 Phase 2 dependencies
+- fastapi, uvicorn, opentelemetry-sdk, opentelemetry-exporter-otlp-proto-http: serving and spans (CLAUDE.md section 3, Phase 2). Already present transitively via mlflow; now declared explicitly.
+- No Docker, Dockerfile, Terraform or llama.cpp baseline (environment substitutions); serving runs natively with uvicorn.

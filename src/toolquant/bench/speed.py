@@ -85,11 +85,24 @@ def main() -> None:
     ap.add_argument("--hf-path", default="data/cache/qwen3-0.6b-hf")
     ap.add_argument("--warmup", type=int, default=WARMUP)
     ap.add_argument("--runs", type=int, default=RUNS)
+    ap.add_argument("--threads", type=int, help="intra-op threads (default: library default)")
+    ap.add_argument("--opt-level", help="ORT graph optimization level, e.g. ORT_ENABLE_ALL")
+    ap.add_argument("--tag", default="", help="suffix for the results file")
     a = ap.parse_args()
 
     tok = AutoTokenizer.from_pretrained(a.hf_path)
     ids = fixed_prompt_ids(tok)
-    model = og.Model(a.onnx_dir)
+    opts: dict[str, Any] = {}
+    if a.threads:
+        opts["intra_op_num_threads"] = a.threads
+    if a.opt_level:
+        opts["graph_optimization_level"] = a.opt_level
+    if opts:
+        cfg = og.Config(a.onnx_dir)
+        cfg.overlay(json.dumps({"model": {"decoder": {"session_options": opts}}}))
+        model = og.Model(cfg)
+    else:
+        model = og.Model(a.onnx_dir)
     for _ in range(a.warmup):
         one_run(model, ids, OUTPUT_TOKENS)
     runs = [one_run(model, ids, OUTPUT_TOKENS) for _ in range(a.runs)]
@@ -105,13 +118,14 @@ def main() -> None:
         "peak_rss_mb": peak_rss_bytes() / 1e6,
         "model_size_mb": sum(p.stat().st_size for p in d.iterdir() if "onnx" in p.name) / 1e6,
         "hardware": hardware(),
-        "ort_threads": "onnxruntime-genai default (no override)",
+        "ort_threads": a.threads or "onnxruntime-genai default (no override)",
+        "ort_opt_level": a.opt_level or "default",
         "git_sha": git_sha(),
         "packages": package_versions(),
         "runs": runs,
     }
     RESULTS.mkdir(exist_ok=True)
-    path = RESULTS / f"bench_{a.name}_{utc}.json"
+    path = RESULTS / f"bench_{a.name}{a.tag}_{utc}.json"
     path.write_text(json.dumps(res, indent=1), encoding="utf-8")
     print(path, json.dumps(res["summary"]))
 

@@ -33,7 +33,7 @@ bench NAME:
     uv run python -m toolquant.bench.speed --onnx-dir data/cache/onnx/{{NAME}} --name {{NAME}}
 
 serve:
-    @Write-Error "not implemented: serve"; exit 1
+    uv run uvicorn --factory toolquant.serve.app:app_factory --host 127.0.0.1 --port 8000
 
 report:
     uv run python -m toolquant.report
